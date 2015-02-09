@@ -6,10 +6,11 @@ FROM ubuntu:trusty
 RUN apt-get install -y software-properties-common curl
 RUN apt-add-repository ppa:ubuntugis/ubuntugis-unstable
 RUN apt-get update && apt-get install -y git python-pip build-essential libssl-dev libffi-dev python-dev python-gdal libgdal1-dev gdal-bin imagemagick geotiff-bin otb-bin otb-bin-qt
-RUN pip install -U git+git://github.com/developmentseed/landsat-util.git
 
-# install mb-util
+# install some python tools
 WORKDIR /home
+RUN pip install -U git+https://github.com/jimyhuang/landsat-util/#egg=landsat-util
+RUN pip install -U git+https://github.com/jimyhuang/indicar-tools/#egg=indicar-tools
 RUN git clone https://github.com/mapbox/mbutil.git
 RUN cd mbutil && python setup.py install
 
