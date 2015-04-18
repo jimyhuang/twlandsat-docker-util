@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y git python-pip build-essential libssl-d
 WORKDIR /home
 RUN pip install -U git+https://github.com/jimyhuang/landsat-util/#egg=landsat-util
 RUN pip install git+https://github.com/jimyhuang/indicar-tools/#egg=indicar-tools
-RUN pip install BeautifulSoup requests
+RUN pip install BeautifulSoup4 requests
 RUN git clone https://github.com/mapbox/mbutil.git
 RUN cd mbutil && python setup.py install
 
