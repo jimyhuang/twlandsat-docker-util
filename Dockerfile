@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y git python-pip build-essential libssl-d
 # install some python tools
 WORKDIR /home
 RUN apt-get update && apt-get install -y python-numpy python-scipy libatlas-base-dev gfortran libfreetype6-dev
-RUN pip install -U git+https://github.com/developmentseed/landsat-util/#egg=landsat-util
+RUN pip install -U git+https://github.com/developmentseed/landsat-util@develop
 RUN git clone https://github.com/mapbox/mbutil.git
 RUN cd mbutil && python setup.py install
 
